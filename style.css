@@ -1,0 +1,77 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e6f2ff; /* Biru muda */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background-color: #4da6ff; /* Biru sedang */
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+header img {
+    max-width: 150px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Content Styles */
+main {
+    padding: 30px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.content p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* Button Styles */
+button {
+    background-color: #4da6ff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #3385d6;
+}
