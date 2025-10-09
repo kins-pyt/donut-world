@@ -4,24 +4,153 @@
     <meta charset='UTF-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Donut Shop</title>
+    <title>Donut World</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="header-container">
-            <h1>Donut World</h1>
-            <img src='/asset/image/gambar_coklatdonat_mainmenu.jpg' alt="Donut">
+            <div class="logo-container">
+                <h1>Donut World</h1>
+                <img src='https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80' alt="Donut">
+            </div>
+            <button id="mode-toggle" class="mode-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
     </header>
     
-    <main>
-        <div class="content">
-            <p>Selamat datang di Donut World! Kami menyajikan berbagai macam donut lezat dengan rasa yang menggugah selera.</p> 
-            <p>Kode yang dibuat oleh Galangssssssssssss</p>
-            <button id="welcome-btn">Klik untuk Pesan Donut</button>
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="#menu" class="nav-link">Menu</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact Us</a></li>
+                <li class="nav-item"><a href="#stores" class="nav-link">Stores</a></li>
+            </ul>
         </div>
+    </nav>
+
+    <main>
+        <section id="home" class="content-section active">
+            <div class="content">
+                <h2>Selamat Datang di Donut World!</h2>
+                <p>Kami menyajikan berbagai macam donut lezat dengan rasa yang menggugah selera.</p> 
+                <p>Kode yang dibuat oleh Galang</p>
+                <button id="welcome-btn">Klik untuk Pesan Donut</button>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide active">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Donut Variety">
+                        <div class="carousel-caption">
+                            <h3>Berbagai Pilihan Donut</h3>
+                            <p>Dari klasik hingga inovatif</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Chocolate Donut">
+                        <div class="carousel-caption">
+                            <h3>Donut Cokelat Lezat</h3>
+                            <p>Dilapisi dengan cokelat premium</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1585144867383-db62e77dbe1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Colorful Donuts">
+                        <div class="carousel-caption">
+                            <h3>Donut Warna-warni</h3>
+                            <p>Membuat hari Anda lebih cerah</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="carousel-indicators">
+                    <span class="indicator active"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="content-section">
+            <div class="content">
+                <h2>Menu Donut Kami</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <h3>Donut Cokelat</h3>
+                        <p>Donut lembut dengan lapisan cokelat lezat</p>
+                        <span class="price">Rp 15.000</span>
+                    </div>
+                    <div class="menu-item">
+                        <h3>Donut Stroberi</h3>
+                        <p>Donut dengan glaze stroberi segar</p>
+                        <span class="price">Rp 16.000</span>
+                    </div>
+                    <div class="menu-item">
+                        <h3>Donut Matcha</h3>
+                        <p>Donut dengan rasa matcha autentik</p>
+                        <span class="price">Rp 18.000</span>
+                    </div>
+                    <div class="menu-item">
+                        <h3>Donut Tiramisu</h3>
+                        <p>Donut dengan rasa tiramisu klasik</p>
+                        <span class="price">Rp 20.000</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <div class="content">
+                <h2>Hubungi Kami</h2>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> Telepon: (021) 1234-5678</p>
+                    <p><i class="fas fa-envelope"></i> Email: info@donutworld.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Alamat: Jl. Donat Lezat No. 123, Jakarta</p>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Nama Anda" required>
+                    <input type="email" placeholder="Email Anda" required>
+                    <textarea placeholder="Pesan Anda" rows="5" required></textarea>
+                    <button type="submit">Kirim Pesan</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="stores" class="content-section">
+            <div class="content">
+                <h2>Toko Kami</h2>
+                <div class="stores-grid">
+                    <div class="store-item">
+                        <h3>Donut World Central</h3>
+                        <p>Jl. Sudirman No. 45, Jakarta</p>
+                        <p>Buka: 07.00 - 22.00</p>
+                    </div>
+                    <div class="store-item">
+                        <h3>Donut World Mall</h3>
+                        <p>Mall Grand Indonesia, Lantai 3, Jakarta</p>
+                        <p>Buka: 10.00 - 21.00</p>
+                    </div>
+                    <div class="store-item">
+                        <h3>Donut World BSD</h3>
+                        <p>Jl. BSD Raya Utama, Tangerang</p>
+                        <p>Buka: 07.00 - 22.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <p>&copy; 2023 Donut World. Dibuat dengan ❤ oleh Galang.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
