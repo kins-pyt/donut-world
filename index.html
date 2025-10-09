@@ -4,7 +4,7 @@
     <meta charset='UTF-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Donut World</title>
+    <title>Donut World - Home</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -13,7 +13,7 @@
         <div class="header-container">
             <div class="logo-container">
                 <h1>Donut World</h1>
-                <img src='https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80' alt="Donut">
+                <img src='https://thefirstyearblog.com/wp-content/uploads/2020/09/Baked-Chocolate-Donuts-35B.jpg' alt="Donut">
             </div>
             <button id="mode-toggle" class="mode-toggle">
                 <i class="fas fa-moon"></i>
@@ -24,124 +24,162 @@
     <nav>
         <div class="nav-container">
             <ul class="nav-menu">
-                <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
-                <li class="nav-item"><a href="#menu" class="nav-link">Menu</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact Us</a></li>
-                <li class="nav-item"><a href="#stores" class="nav-link">Stores</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+                <li class="nav-item"><a href="stores.html" class="nav-link">Stores</a></li>
             </ul>
         </div>
     </nav>
 
     <main>
-        <section id="home" class="content-section active">
-            <div class="content">
-                <h2>Selamat Datang di Donut World!</h2>
-                <p>Kami menyajikan berbagai macam donut lezat dengan rasa yang menggugah selera.</p> 
-                <p>Kode yang dibuat oleh Galang</p>
-                <button id="welcome-btn">Klik untuk Pesan Donut</button>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Donat Lezat untuk Setiap Momen</h2>
+                <p>Temukan kelezatan donat terbaik dengan berbagai pilihan rasa yang menggugah selera</p>
+                <div class="hero-buttons">
+                    <a href="menu.html" class="btn btn-primary">Lihat Menu</a>
+                    <a href="stores.html" class="btn btn-secondary">Kunjungi Toko</a>
+                </div>
             </div>
-
-            <div class="carousel-container">
-                <div class="carousel">
-                    <div class="carousel-slide active">
-                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Donut Variety">
-                        <div class="carousel-caption">
-                            <h3>Berbagai Pilihan Donut</h3>
-                            <p>Dari klasik hingga inovatif</p>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Chocolate Donut">
-                        <div class="carousel-caption">
-                            <h3>Donut Cokelat Lezat</h3>
-                            <p>Dilapisi dengan cokelat premium</p>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="https://images.unsplash.com/photo-1585144867383-db62e77dbe1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Colorful Donuts">
-                        <div class="carousel-caption">
-                            <h3>Donut Warna-warni</h3>
-                            <p>Membuat hari Anda lebih cerah</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-btn prev">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-btn next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="carousel-indicators">
-                    <span class="indicator active"></span>
-                    <span class="indicator"></span>
-                    <span class="indicator"></span>
-                </div>
+            <div class="hero-image">
+                <img src="https://www.playpartyplan.com/wp-content/uploads/2024/03/rainbow-donuts-27.jpg" alt="Donut Variety">
             </div>
         </section>
 
-        <section id="menu" class="content-section">
-            <div class="content">
-                <h2>Menu Donut Kami</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <h3>Donut Cokelat</h3>
-                        <p>Donut lembut dengan lapisan cokelat lezat</p>
-                        <span class="price">Rp 15.000</span>
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Mengapa Memilih Donut World?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Kualitas Terbaik</h3>
+                        <p>Kami menggunakan bahan-bahan premium untuk memastikan setiap donat memiliki rasa yang sempurna</p>
                     </div>
-                    <div class="menu-item">
-                        <h3>Donut Stroberi</h3>
-                        <p>Donut dengan glaze stroberi segar</p>
-                        <span class="price">Rp 16.000</span>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Dibuat dengan Cinta</h3>
+                        <p>Setiap donat dibuat dengan perhatian dan dedikasi untuk memberikan pengalaman terbaik</p>
                     </div>
-                    <div class="menu-item">
-                        <h3>Donut Matcha</h3>
-                        <p>Donut dengan rasa matcha autentik</p>
-                        <span class="price">Rp 18.000</span>
-                    </div>
-                    <div class="menu-item">
-                        <h3>Donut Tiramisu</h3>
-                        <p>Donut dengan rasa tiramisu klasik</p>
-                        <span class="price">Rp 20.000</span>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Bahan Segar</h3>
+                        <p>Kami memastikan semua bahan yang digunakan selalu dalam kondisi terbaik dan segar</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="content-section">
-            <div class="content">
-                <h2>Hubungi Kami</h2>
-                <div class="contact-info">
-                    <p><i class="fas fa-phone"></i> Telepon: (021) 1234-5678</p>
-                    <p><i class="fas fa-envelope"></i> Email: info@donutworld.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Alamat: Jl. Donat Lezat No. 123, Jakarta</p>
+        <!-- Popular Products Section -->
+        <section class="popular-products">
+            <div class="container">
+                <h2 class="section-title">Produk Terpopuler</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Chocolate Donut">
+                        </div>
+                        <div class="product-info">
+                            <h3>Donut Cokelat</h3>
+                            <p>Donut lembut dengan lapisan cokelat lezat</p>
+                            <div class="product-price">Rp 15.000</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://hips.hearstapps.com/hmg-prod/images/types-of-doughnuts-1666119864.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=400:*" alt="Colorful Donuts">
+                        </div>
+                        <div class="product-info">
+                            <h3>Donut Rainbow</h3>
+                            <p>Donut warna-warni dengan glaze yang manis</p>
+                            <div class="product-price">Rp 18.000</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://thefirstyearblog.com/wp-content/uploads/2020/09/Baked-Chocolate-Donuts-35B.jpg" alt="Chocolate Glaze Donut">
+                        </div>
+                        <div class="product-info">
+                            <h3>Donut Glaze</h3>
+                            <p>Donut dengan glaze cokelat yang menggiurkan</p>
+                            <div class="product-price">Rp 16.000</div>
+                        </div>
+                    </div>
                 </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Nama Anda" required>
-                    <input type="email" placeholder="Email Anda" required>
-                    <textarea placeholder="Pesan Anda" rows="5" required></textarea>
-                    <button type="submit">Kirim Pesan</button>
-                </form>
+                <div class="section-cta">
+                    <a href="menu.html" class="btn btn-primary">Lihat Semua Menu</a>
+                </div>
             </div>
         </section>
 
-        <section id="stores" class="content-section">
-            <div class="content">
-                <h2>Toko Kami</h2>
-                <div class="stores-grid">
-                    <div class="store-item">
-                        <h3>Donut World Central</h3>
-                        <p>Jl. Sudirman No. 45, Jakarta</p>
-                        <p>Buka: 07.00 - 22.00</p>
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">Apa Kata Pelanggan Kami</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Donut World adalah tempat favorit saya untuk donat. Rasanya selalu konsisten dan lezat!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Pelanggan Setia</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="store-item">
-                        <h3>Donut World Mall</h3>
-                        <p>Mall Grand Indonesia, Lantai 3, Jakarta</p>
-                        <p>Buka: 10.00 - 21.00</p>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Saya selalu membeli donat dari sini untuk acara kantor. Semua kolega saya menyukainya!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Budi Santoso</h4>
+                                <p>Manajer Marketing</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="store-item">
-                        <h3>Donut World BSD</h3>
-                        <p>Jl. BSD Raya Utama, Tangerang</p>
-                        <p>Buka: 07.00 - 22.00</p>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Donatnya lembut dan fresh. Pilihan rasanya juga banyak, jadi tidak pernah bosan!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Maya Wijaya</h4>
+                                <p>Food Blogger</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Siap Menikmati Donat Lezat?</h2>
+                    <p>Kunjungi toko kami atau pesan online untuk pengalaman donat terbaik</p>
+                    <div class="cta-buttons">
+                        <a href="stores.html" class="btn btn-primary">Cari Toko Terdekat</a>
+                        <a href="contact.html" class="btn btn-secondary">Hubungi Kami</a>
                     </div>
                 </div>
             </div>
@@ -149,7 +187,39 @@
     </main>
 
     <footer>
-        <p>&copy; 2023 Donut World. Dibuat dengan ❤ oleh Galang.</p>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Donut World</h3>
+                    <p>Kami menyajikan berbagai macam donut lezat dengan rasa yang menggugah selera.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="stores.html">Stores</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> (021) 1234-5678</li>
+                        <li><i class="fas fa-envelope"></i> info@donutworld.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Jl. Donat Lezat No. 123, Jakarta</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Donut World. Dibuat dengan ❤ oleh Galang.</p>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
