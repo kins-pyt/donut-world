@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donut World - Stores</title>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+</head>
+<body>
+  <!-- Header (seragam) -->
+  <header>
+    <div class="header-container">
+      <div class="logo-container">
+        <h1>Donut World</h1>
+        <img src="https://thefirstyearblog.com/wp-content/uploads/2020/09/Baked-Chocolate-Donuts-35B.jpg" alt="Donut"/>
+      </div>
+      <button id="mode-toggle" class="mode-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Nav (seragam) -->
+  <nav>
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+        <li class="nav-item"><a href="stores.html" class="nav-link active">Stores</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero / Tools -->
+    <section class="stores-hero">
+      <div class="container">
+        <div class="stores-hero-inner">
+          <div>
+            <h2>Gerai Kami</h2>
+            <p>Cari gerai terdekat, lihat jam buka, dan langsung dapatkan rute.</p>
+          </div>
+
+          <div class="stores-actions">
+            <div class="stores-search">
+              <i class="fas fa-magnifying-glass"></i>
+              <input id="storeSearch" type="text" placeholder="Cari kota / kecamatan / alamat…" aria-label="Cari toko"/>
+            </div>
+
+            <div class="stores-sort">
+              <label for="storeSort"><i class="fas fa-arrow-down-wide-short"></i></label>
+              <select id="storeSort" aria-label="Urutkan">
+                <option value="default">Urutkan: Default</option>
+                <option value="nearest">Terdekat (butuh lokasi)</option>
+                <option value="name-asc">Nama: A-Z</option>
+                <option value="name-desc">Nama: Z-A</option>
+              </select>
+            </div>
+
+            <button id="useMyLocation" class="btn btn-secondary btn-icon">
+              <i class="fas fa-location-crosshairs"></i> Gunakan Lokasi Saya
+            </button>
+          </div>
+
+          <div class="stores-chips" id="storeChips">
+            <button class="chip active" data-city="all"><i class="fas fa-asterisk"></i> Semua</button>
+            <button class="chip" data-city="Jakarta">Jakarta</button>
+            <button class="chip" data-city="Bandung">Bandung</button>
+            <button class="chip" data-city="Surabaya">Surabaya</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map highlight (ter-update saat pilih toko) -->
+    <section class="stores-map">
+      <div class="container">
+        <div class="map-card">
+          <div class="map-head">
+            <h3 id="mapTitle">Peta Lokasi</h3>
+            <p id="mapSubtitle" class="muted">Pilih toko untuk melihat peta & rute.</p>
+          </div>
+          <div class="map-embed">
+            <!-- Kamu boleh ganti src dengan map favoritmu -->
+            <iframe
+              id="mapIframe"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7918.9543489151635!2d106.827153!3d-6.175387!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTAnMzEuNCJTIDEwNsKwNDknMzcuNyJF!5e0!3m2!1sid!2sid!4v1687777777777"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Map"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stores list -->
+    <section class="stores-list">
+      <div class="container">
+        <div id="storesGrid" class="store-grid">
+
+          <!-- Contoh kartu toko; data-* dipakai untuk filter, jarak, dan tautan -->
+          <article class="store-card"
+            data-name="Donut World - Thamrin"
+            data-city="Jakarta"
+            data-lat="-6.193271"
+            data-lng="106.822835"
+            data-wa="6281234567890"
+            data-phone="0211234567"
+            data-hours='{"Mon":"08:00-21:00","Tue":"08:00-21:00","Wed":"08:00-21:00","Thu":"08:00-21:00","Fri":"08:00-21:30","Sat":"08:00-22:00","Sun":"08:00-22:00"}'>
+            <div class="store-body">
+              <div class="store-headline">
+                <h3 class="store-title">Donut World - Thamrin</h3>
+                <span class="store-city">Jakarta</span>
+              </div>
+              <p class="store-address" data-address>
+                Jl. M.H. Thamrin No. 1, Menteng, Jakarta Pusat
+              </p>
+              <div class="store-meta">
+                <span class="store-status" data-openbadge>—</span>
+                <span><i class="fas fa-clock"></i> <span data-hourstext>Setiap hari 08.00–21.00</span></span>
+              </div>
+              <div class="store-actions">
+                <a class="btn btn-primary" data-directions href="#" target="_blank" rel="noopener">
+                  <i class="fas fa-diamond-turn-right"></i> Rute
+                </a>
+                <a class="btn btn-secondary" data-call href="#" >
+                  <i class="fas fa-phone"></i> Telepon
+                </a>
+                <a class="btn btn-secondary" data-wa href="#" target="_blank" rel="noopener">
+                  <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <button class="btn btn-ghost" data-copy>
+                  <i class="fas fa-copy"></i> Salin Alamat
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="store-card"
+            data-name="Donut World - Dago"
+            data-city="Bandung"
+            data-lat="-6.890550"
+            data-lng="107.619122"
+            data-wa="6281234567891"
+            data-phone="0221234567"
+            data-hours='{"Mon":"08:00-21:00","Tue":"08:00-21:00","Wed":"08:00-21:00","Thu":"08:00-21:00","Fri":"08:00-22:00","Sat":"08:00-22:00","Sun":"08:00-21:00"}'>
+            <div class="store-body">
+              <div class="store-headline">
+                <h3 class="store-title">Donut World - Dago</h3>
+                <span class="store-city">Bandung</span>
+              </div>
+              <p class="store-address" data-address>
+                Jl. Ir. H. Juanda No. 90, Dago, Bandung
+              </p>
+              <div class="store-meta">
+                <span class="store-status" data-openbadge>—</span>
+                <span><i class="fas fa-clock"></i> <span data-hourstext>Setiap hari 08.00–21.00</span></span>
+              </div>
+              <div class="store-actions">
+                <a class="btn btn-primary" data-directions href="#" target="_blank" rel="noopener">
+                  <i class="fas fa-diamond-turn-right"></i> Rute
+                </a>
+                <a class="btn btn-secondary" data-call href="#">
+                  <i class="fas fa-phone"></i> Telepon
+                </a>
+                <a class="btn btn-secondary" data-wa href="#" target="_blank" rel="noopener">
+                  <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <button class="btn btn-ghost" data-copy>
+                  <i class="fas fa-copy"></i> Salin Alamat
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="store-card"
+            data-name="Donut World - Tunjungan"
+            data-city="Surabaya"
+            data-lat="-7.257472"
+            data-lng="112.739621"
+            data-wa="6281234567892"
+            data-phone="0311234567"
+            data-hours='{"Mon":"09:00-21:00","Tue":"09:00-21:00","Wed":"09:00-21:00","Thu":"09:00-21:00","Fri":"09:00-22:00","Sat":"09:00-22:00","Sun":"09:00-21:00"}'>
+            <div class="store-body">
+              <div class="store-headline">
+                <h3 class="store-title">Donut World - Tunjungan</h3>
+                <span class="store-city">Surabaya</span>
+              </div>
+              <p class="store-address" data-address>
+                Jl. Tunjungan No. 55, Genteng, Surabaya
+              </p>
+              <div class="store-meta">
+                <span class="store-status" data-openbadge>—</span>
+                <span><i class="fas fa-clock"></i> <span data-hourstext>Setiap hari 09.00–21.00</span></span>
+              </div>
+              <div class="store-actions">
+                <a class="btn btn-primary" data-directions href="#" target="_blank" rel="noopener">
+                  <i class="fas fa-diamond-turn-right"></i> Rute
+                </a>
+                <a class="btn btn-secondary" data-call href="#">
+                  <i class="fas fa-phone"></i> Telepon
+                </a>
+                <a class="btn btn-secondary" data-wa href="#" target="_blank" rel="noopener">
+                  <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <button class="btn btn-ghost" data-copy>
+                  <i class="fas fa-copy"></i> Salin Alamat
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tambah gerai lain tinggal copy <article> di atas -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ingin pesan untuk diambil?</h2>
+          <p>Pilih gerai terdekat, chat kami via WhatsApp, dan donat siap diambil.</p>
+          <div class="cta-buttons">
+            <a href="menu.html" class="btn btn-primary">Lihat Menu</a>
+            <a href="contact.html" class="btn btn-secondary">Butuh Bantuan?</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (seragam) -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Donut World</h3>
+          <p>Kami menyajikan berbagai macam donut lezat dengan rasa yang menggugah selera.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="stores.html">Stores</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <ul>
+            <li><i class="fas fa-phone"></i> (021) 1234-5678</li>
+            <li><i class="fas fa-envelope"></i> info@donutworld.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> Jl. Donat Lezat No. 123, Jakarta</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Donut World. Dibuat dengan ❤ oleh Galang.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donut World - Menu</title>
+
+  <!-- Tetap gunakan style & ikon yang sama -->
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+</head>
+<body>
+  <!-- Header (sama) -->
+  <header>
+    <div class="header-container">
+      <div class="logo-container">
+        <h1>Donut World</h1>
+        <img src="https://thefirstyearblog.com/wp-content/uploads/2020/09/Baked-Chocolate-Donuts-35B.jpg" alt="Donut" />
+      </div>
+      <button id="mode-toggle" class="mode-toggle">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Nav (sama, tapi aktif di Menu) -->
+  <nav>
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="menu.html" class="nav-link active">Menu</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+        <li class="nav-item"><a href="stores.html" class="nav-link">Stores</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Menu Hero -->
+    <section class="menu-hero">
+      <div class="container">
+        <div class="menu-hero-inner">
+          <div>
+            <h2>Menu Donat & Minuman</h2>
+            <p>Filter, cari rasa favoritmu, lalu pesan langsung via WhatsApp.</p>
+          </div>
+
+          <div class="menu-actions">
+            <div class="menu-search">
+              <i class="fas fa-magnifying-glass"></i>
+              <input
+                type="text"
+                id="menuSearch"
+                placeholder="Cari donat: cokelat, glaze, matcha..."
+                aria-label="Cari menu"
+              />
+            </div>
+
+            <div class="menu-sort">
+              <label for="menuSort"><i class="fas fa-arrow-down-wide-short"></i></label>
+              <select id="menuSort" aria-label="Urutkan">
+                <option value="default">Urutkan: Default</option>
+                <option value="price-asc">Harga: Termurah</option>
+                <option value="price-desc">Harga: Termahal</option>
+                <option value="name-asc">Nama: A-Z</option>
+                <option value="name-desc">Nama: Z-A</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="menu-chips" id="menuChips">
+            <button class="chip active" data-category="all"><i class="fas fa-asterisk"></i> Semua</button>
+            <button class="chip" data-category="classic"><i class="fas fa-circle"></i> Classic</button>
+            <button class="chip" data-category="premium"><i class="fas fa-star"></i> Premium</button>
+            <button class="chip" data-category="filled"><i class="fas fa-certificate"></i> Filled</button>
+            <button class="chip" data-category="drinks"><i class="fas fa-mug-hot"></i> Drinks</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid Menu -->
+    <section class="menu-list">
+      <div class="container">
+        <div class="menu-grid" id="menuGrid">
+
+          <!-- Sample items (bisa kamu gandakan/ubah sesuai stok) -->
+          <article class="menu-card" data-category="classic" data-name="Donut Glaze Original" data-price="15000" data-tags="glaze,original,classic">
+            <div class="menu-thumb">
+              <span class="badge badge-new">Baru</span>
+              <img src="https://images.unsplash.com/photo-1619158401201-8a6e5e6a0eef?q=80&w=1200&auto=format&fit=crop" alt="Donut Glaze Original" />
+            </div>
+            <div class="menu-info">
+              <h3 class="menu-title">Donut Glaze Original</h3>
+              <p class="menu-desc">Donat lembut dengan glaze manis klasik.</p>
+              <div class="menu-meta">
+                <div class="diet-icons">
+                  <span title="Vegetarian"><i class="fas fa-leaf"></i></span>
+                </div>
+                <div class="menu-price">Rp 15.000</div>
+              </div>
+              <a class="btn btn-primary wa-order"
+                 data-wa="6281234567890"
+                 data-wa-text="Halo Donut World! Saya mau pesan: Donut Glaze Original (Rp 15.000). Apakah tersedia?"
+                 href="#"
+                 target="_blank" rel="noopener">
+                 Pesan via WhatsApp
+              </a>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="premium" data-name="Donut Cokelat Belgian" data-price="18000" data-tags="cokelat,chocolate,premium">
+            <div class="menu-thumb">
+              <span class="badge badge-hit">Best Seller</span>
+              <img src="https://images.unsplash.com/photo-1551024709-8f23befc6cf7?q=80&w=1200&auto=format&fit=crop" alt="Donut Cokelat Belgian" />
+            </div>
+            <div class="menu-info">
+              <h3 class="menu-title">Donut Cokelat Belgian</h3>
+              <p class="menu-desc">Lapisan cokelat Belgian pekat, manis seimbang.</p>
+              <div class="menu-meta">
+                <div class="diet-icons">
+                  <span title="Vegetarian"><i class="fas fa-leaf"></i></span>
+                </div>
+                <div class="menu-price">Rp 18.000</div>
+              </div>
+              <a class="btn btn-primary wa-order"
+                 data-wa="6281234567890"
+                 data-wa-text="Halo Donut World! Saya mau pesan: Donut Cokelat Belgian (Rp 18.000). Apakah tersedia?"
+                 href="#"
+                 target="_blank" rel="noopener">
+                 Pesan via WhatsApp
+              </a>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="filled" data-name="Donut Jelly Strawberry" data-price="16000" data-tags="strawberry,filled,selai">
+            <div class="menu-thumb">
+              <img src="https://images.unsplash.com/photo-1598936407617-d89a9f2a2a7a?q=80&w=1200&auto=format&fit=crop" alt="Donut Jelly Strawberry" />
+            </div>
+            <div class="menu-info">
+              <h3 class="menu-title">Donut Jelly Strawberry</h3>
+              <p class="menu-desc">Isi selai stroberi segar yang melimpah.</p>
+              <div class="menu-meta">
+                <div class="diet-icons">
+                  <span title="Tanpa Kacang"><i class="fas fa-ban"></i></span>
+                </div>
+                <div class="menu-price">Rp 16.000</div>
+              </div>
+              <a class="btn btn-primary wa-order"
+                 data-wa="6281234567890"
+                 data-wa-text="Halo Donut World! Saya mau pesan: Donut Jelly Strawberry (Rp 16.000). Apakah tersedia?"
+                 href="#"
+                 target="_blank" rel="noopener">
+                 Pesan via WhatsApp
+              </a>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="drinks" data-name="Iced Coffee" data-price="22000" data-tags="kopi,coffee,minuman,iced">
+            <div class="menu-thumb">
+              <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=1200&auto=format&fit=crop" alt="Iced Coffee" />
+            </div>
+            <div class="menu-info">
+              <h3 class="menu-title">Iced Coffee</h3>
+              <p class="menu-desc">Kopi dingin segar, pahit-manis yang pas.</p>
+              <div class="menu-meta">
+                <div class="diet-icons">
+                  <span title="Kafein"><i class="fas fa-bolt"></i></span>
+                </div>
+                <div class="menu-price">Rp 22.000</div>
+              </div>
+              <a class="btn btn-primary wa-order"
+                 data-wa="6281234567890"
+                 data-wa-text="Halo Donut World! Saya mau pesan: Iced Coffee (Rp 22.000). Apakah tersedia?"
+                 href="#"
+                 target="_blank" rel="noopener">
+                 Pesan via WhatsApp
+              </a>
+            </div>
+          </article>
+
+          <!-- Tambahkan item lain sesukamu, tinggal copy <article> di atas -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Seksi biar konversi naik -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Laper donat? Tinggal klik, kami siap!</h2>
+          <p>Pesan sekarang dan ambil di toko terdekat atau kirim instan.</p>
+          <div class="cta-buttons">
+            <a href="stores.html" class="btn btn-primary">Lihat Toko</a>
+            <a href="contact.html" class="btn btn-secondary">Butuh Bantuan?</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (sama) -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Donut World</h3>
+          <p>Kami menyajikan berbagai macam donut lezat dengan rasa yang menggugah selera.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="stores.html">Stores</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <ul>
+            <li><i class="fas fa-phone"></i> (021) 1234-5678</li>
+            <li><i class="fas fa-envelope"></i> info@donutworld.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> Jl. Donat Lezat No. 123, Jakarta</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Donut World. Dibuat dengan ❤ oleh Kinsey.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
