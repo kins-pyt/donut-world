@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donut World - Contact Us</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+</head>
+<body>
+  <!-- Header (seragam) -->
+  <header>
+    <div class="header-container">
+      <div class="logo-container">
+        <h1>Donut World</h1>
+        <img src="https://thefirstyearblog.com/wp-content/uploads/2020/09/Baked-Chocolate-Donuts-35B.jpg" alt="Donut"/>
+      </div>
+      <button id="mode-toggle" class="mode-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Nav (seragam) -->
+  <nav>
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link active">Contact Us</a></li>
+        <li class="nav-item"><a href="stores.html" class="nav-link">Stores</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="contact-hero">
+      <div class="container">
+        <div class="contact-hero-inner">
+          <h2>Hubungi Kami</h2>
+          <p>Punya pertanyaan, saran, atau ingin memberikan feedback? Kami siap mendengarkan!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-content">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Contact Form -->
+          <div class="contact-form-container">
+            <h3>Kirim Pesan</h3>
+            <form id="contactForm" class="contact-form">
+              <div class="form-group">
+                <label for="name">Nama Lengkap</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Nomor Telepon</label>
+                <input type="tel" id="phone" name="phone">
+              </div>
+              <div class="form-group">
+                <label for="subject">Subjek</label>
+                <select id="subject" name="subject" required>
+                  <option value="" disabled selected>Pilih subjek</option>
+                  <option value="general">Pertanyaan Umum</option>
+                  <option value="complaint">Keluhan</option>
+                  <option value="suggestion">Saran</option>
+                  <option value="partnership">Kemitraan</option>
+                  <option value="career">Karir</option>
+                  <option value="other">Lainnya</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Pesan</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">Kirim Pesan</button>
+            </form>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="contact-info-container">
+            <h3>Informasi Kontak</h3>
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Telepon</h4>
+                  <p>(021) 1234-5678</p>
+                  <p>(021) 1234-5679</p>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Email</h4>
+                  <p>info@donutworld.com</p>
+                  <p>order@donutworld.com</p>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Alamat Kantor Pusat</h4>
+                  <p>Jl. Donat Lezat No. 123, Jakarta Pusat</p>
+                  <p>DKI Jakarta, 10110</p>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Jam Operasional</h4>
+                  <p>Senin - Jumat: 08.00 - 21.00</p>
+                  <p>Sabtu - Minggu: 09.00 - 22.00</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Media -->
+            <div class="social-section">
+              <h4>Ikuti Kami</h4>
+              <div class="social-links">
+                <a href="#" class="social-link">
+                  <i class="fab fa-facebook-f"></i>
+                  <span>Facebook</span>
+                </a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-instagram"></i>
+                  <span>Instagram</span>
+                </a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-twitter"></i>
+                  <span>Twitter</span>
+                </a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-tiktok"></i>
+                  <span>TikTok</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="section-title">Pertanyaan Umum</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>Bagaimana cara memesan donat dalam jumlah besar?</h4>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Untuk pemesanan dalam jumlah besar (lebih dari 50 pcs), silakan hubungi kami minimal 2 hari sebelumnya melalui telepon atau WhatsApp. Kami akan memberikan harga khusus untuk pesanan besar.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>Apakah Donut World menyediakan layanan pengiriman?</h4>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Ya, kami menyediakan layanan pengiriman melalui kurir untuk area tertentu. Biaya pengiriman tergantung pada jarak dan jumlah pesanan. Silakan hubungi kami untuk informasi lebih lanjut.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>Apakah Donut World menerima pesanan khusus untuk acara?</h4>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Tentu! Kami menerima pesanan khusus untuk berbagai acara seperti ulang tahun, pernikahan, atau acara perusahaan. Silakan hubungi kami minimal 1 minggu sebelumnya untuk mendiskusikan kebutuhan Anda.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>Apakah ada pilihan donat untuk vegetarian?</h4>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Ya, sebagian besar produk kami cocok untuk vegetarian. Beberapa varian donat kami menggunakan bahan-bahan nabati. Silakan tanyakan kepada staf kami untuk informasi detail tentang bahan-bahan yang digunakan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Siap Menikmati Donat Lezat?</h2>
+          <p>Kunjungi toko kami atau pesan online untuk pengalaman donat terbaik</p>
+          <div class="cta-buttons">
+            <a href="stores.html" class="btn btn-primary">Cari Toko Terdekat</a>
+            <a href="menu.html" class="btn btn-secondary">Lihat Menu</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (seragam) -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Donut World</h3>
+          <p>Kami menyajikan berbagai macam donut lezat dengan rasa yang menggugah selera.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="stores.html">Stores</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <ul>
+            <li><i class="fas fa-phone"></i> (021) 1234-5678</li>
+            <li><i class="fas fa-envelope"></i> info@donutworld.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> Jl. Donat Lezat No. 123, Jakarta</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Donut World. Dibuat dengan ❤ oleh Galang.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -312,3 +312,53 @@ document.addEventListener('DOMContentLoaded', function () {
   // Default render
   filterCards();
 });
+
+/* ===== CONTACT PAGE FUNCTIONALITY ===== */
+document.addEventListener('DOMContentLoaded', function () {
+  const contactForm = document.getElementById('contactForm');
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  // Only run on contact page
+  if (!contactForm) return;
+  
+  // Contact Form Submission
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(contactForm);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const subject = formData.get('subject');
+    
+    // Simple validation
+    if (!name || !email || !subject) {
+      alert('Harap lengkapi semua field yang wajib diisi.');
+      return;
+    }
+    
+    // In a real application, you would send the data to a server here
+    // For now, we'll just show a success message
+    alert(`Terima kasih ${name}! Pesan Anda telah berhasil dikirim. Kami akan membalas ke ${email} dalam 1-2 hari kerja.`);
+    
+    // Reset form
+    contactForm.reset();
+  });
+  
+  // FAQ Accordion Functionality
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    
+    question.addEventListener('click', () => {
+      // Close all other items
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('active');
+        }
+      });
+      
+      // Toggle current item
+      item.classList.toggle('active');
+    });
+  });
+});
