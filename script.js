@@ -363,6 +363,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+<<<<<<< HEAD
 // Login Functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Get modal elements
@@ -532,4 +533,225 @@ document.addEventListener('DOMContentLoaded', function() {
             loginForm.style.display = 'block';
         }, 2500);
     }
+=======
+/* ===== LOGIN SYSTEM FUNCTIONALITY ===== */
+document.addEventListener('DOMContentLoaded', function() {
+  // Elements
+  const loginBtn = document.getElementById('loginBtn');
+  const loginModal = document.getElementById('loginModal');
+  const registerModal = document.getElementById('registerModal');
+  const userMenu = document.getElementById('userMenu');
+  const closeButtons = document.querySelectorAll('.close');
+  const showRegister = document.getElementById('showRegister');
+  const showLogin = document.getElementById('showLogin');
+  const loginForm = document.getElementById('loginForm');
+  const registerForm = document.getElementById('registerForm');
+  const logoutBtn = document.getElementById('logoutBtn');
+  
+  // Check if user is already logged in
+  checkLoginStatus();
+  
+  // Open Login Modal
+  if (loginBtn) {
+    loginBtn.addEventListener('click', function() {
+      loginModal.style.display = 'block';
+    });
+  }
+  
+  // Close Modals
+  closeButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      loginModal.style.display = 'none';
+      registerModal.style.display = 'none';
+    });
+  });
+  
+  // Switch to Register Modal
+  if (showRegister) {
+    showRegister.addEventListener('click', function(e) {
+      e.preventDefault();
+      loginModal.style.display = 'none';
+      registerModal.style.display = 'block';
+    });
+  }
+  
+  // Switch to Login Modal
+  if (showLogin) {
+    showLogin.addEventListener('click', function(e) {
+      e.preventDefault();
+      registerModal.style.display = 'none';
+      loginModal.style.display = 'block';
+    });
+  }
+  
+  // Close modal when clicking outside
+  window.addEventListener('click', function(e) {
+    if (e.target === loginModal) {
+      loginModal.style.display = 'none';
+    }
+    if (e.target === registerModal) {
+      registerModal.style.display = 'none';
+    }
+  });
+  
+  // Login Form Submission
+  if (loginForm) {
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      const rememberMe = document.getElementById('rememberMe').checked;
+      
+      // In a real application, you would send this to your backend
+      // For demo purposes, we'll simulate a successful login
+      simulateLogin(email, password, rememberMe);
+    });
+  }
+  
+  // Register Form Submission
+  if (registerForm) {
+    registerForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('registerName').value;
+      const email = document.getElementById('registerEmail').value;
+      const phone = document.getElementById('registerPhone').value;
+      const password = document.getElementById('registerPassword').value;
+      const confirmPassword = document.getElementById('registerConfirmPassword').value;
+      
+      // Validate passwords match
+      if (password !== confirmPassword) {
+        alert('Password dan konfirmasi password tidak cocok!');
+        return;
+      }
+      
+      // In a real application, you would send this to your backend
+      // For demo purposes, we'll simulate a successful registration and login
+      simulateRegister(name, email, phone, password);
+    });
+  }
+  
+  // Logout Functionality
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      logout();
+    });
+  }
+  
+  // Simulate Login (Replace with actual API call)
+  function simulateLogin(email, password, rememberMe) {
+    // This is where you would make an API call to your backend
+    // For demo purposes, we'll just check if fields are filled
+    
+    if (!email || !password) {
+      alert('Harap isi semua field!');
+      return;
+    }
+    
+    // Simulate API call delay
+    setTimeout(function() {
+      // In a real app, you would get a token and user data from the API
+      const userData = {
+        id: 1,
+        name: 'User Demo',
+        email: email,
+        avatar: 'https://via.placeholder.com/40'
+      };
+      
+      // Store user data (in a real app, you might store a token)
+      localStorage.setItem('user', JSON.stringify(userData));
+      if (rememberMe) {
+        localStorage.setItem('rememberMe', 'true');
+      }
+      
+      // Update UI
+      updateUIAfterLogin(userData);
+      
+      // Close modal
+      loginModal.style.display = 'none';
+      
+      // Show success message
+      alert('Login berhasil! Selamat datang di Donut World.');
+    }, 1000);
+  }
+  
+  // Simulate Register (Replace with actual API call)
+  function simulateRegister(name, email, phone, password) {
+    // This is where you would make an API call to your backend
+    
+    if (!name || !email || !password) {
+      alert('Harap isi semua field yang wajib!');
+      return;
+    }
+    
+    // Simulate API call delay
+    setTimeout(function() {
+      // In a real app, you would get a token and user data from the API
+      const userData = {
+        id: 1,
+        name: name,
+        email: email,
+        phone: phone,
+        avatar: 'https://via.placeholder.com/40'
+      };
+      
+      // Store user data (in a real app, you might store a token)
+      localStorage.setItem('user', JSON.stringify(userData));
+      
+      // Update UI
+      updateUIAfterLogin(userData);
+      
+      // Close modal
+      registerModal.style.display = 'none';
+      
+      // Show success message
+      alert('Pendaftaran berhasil! Selamat datang di Donut World.');
+    }, 1000);
+  }
+  
+  // Update UI after login
+  function updateUIAfterLogin(userData) {
+    // Hide login button, show user menu
+    if (loginBtn) loginBtn.style.display = 'none';
+    if (userMenu) {
+      userMenu.style.display = 'block';
+      document.getElementById('userName').textContent = userData.name;
+    }
+    
+    // You can add more UI updates here
+    // For example, show personalized content, enable features, etc.
+  }
+  
+  // Check login status on page load
+  function checkLoginStatus() {
+    const user = localStorage.getItem('user');
+    const rememberMe = localStorage.getItem('rememberMe');
+    
+    if (user && rememberMe) {
+      const userData = JSON.parse(user);
+      updateUIAfterLogin(userData);
+    } else if (user) {
+      // If no remember me, clear on browser close
+      // But for this session, we'll keep the user logged in
+      const userData = JSON.parse(user);
+      updateUIAfterLogin(userData);
+    }
+  }
+  
+  // Logout function
+  function logout() {
+    // Clear stored user data
+    localStorage.removeItem('user');
+    localStorage.removeItem('rememberMe');
+    
+    // Update UI
+    if (loginBtn) loginBtn.style.display = 'block';
+    if (userMenu) userMenu.style.display = 'none';
+    
+    // Show login modal or redirect to home
+    alert('Anda telah logout.');
+  }
+>>>>>>> 8773a11cdc77a41b00b509f2e968862f4bdadab4
 });
