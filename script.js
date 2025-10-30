@@ -363,7 +363,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-<<<<<<< HEAD
+
 // Login Functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Get modal elements
@@ -533,7 +533,7 @@ document.addEventListener('DOMContentLoaded', function() {
             loginForm.style.display = 'block';
         }, 2500);
     }
-=======
+
 /* ===== LOGIN SYSTEM FUNCTIONALITY ===== */
 document.addEventListener('DOMContentLoaded', function() {
   // Elements
@@ -739,7 +739,7 @@ document.addEventListener('DOMContentLoaded', function() {
       updateUIAfterLogin(userData);
     }
   }
-  
+
   // Logout function
   function logout() {
     // Clear stored user data
@@ -753,5 +753,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Show login modal or redirect to home
     alert('Anda telah logout.');
   }
->>>>>>> 8773a11cdc77a41b00b509f2e968862f4bdadab4
-});
+}
