@@ -15,11 +15,51 @@
                 <h1>Donut World</h1>
                 <img src='https://thefirstyearblog.com/wp-content/uploads/2020/09/Baked-Chocolate-Donuts-35B.jpg' alt="Donut">
             </div>
-            <button id="mode-toggle" class="mode-toggle">
-                <i class="fas fa-moon"></i>
-            </button>
+            <div class="header-right">
+                <div class="auth-buttons">
+                    <button id="loginBtn" class="btn btn-login">Login</button>
+                </div>
+                <button id="mode-toggle" class="mode-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
         </div>
     </header>
+    
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login to Donut World</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Username or Email</label>
+                        <input type="text" id="username" name="username" required>
+                        <div class="error-message" id="usernameError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                        <div class="error-message" id="passwordError"></div>
+                    </div>
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="remember" name="remember">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Login</button>
+                </form>
+                <div class="login-footer">
+                    <p>Don't have an account? <a href="#" id="showRegister">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <nav>
         <div class="nav-container">
@@ -191,7 +231,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Donut World</h3>
-                    <p>Kami menyajikan berbagai macam donut lezat dengan rasa yang menggugah selera.</p>
+                    <p>Kami menyajikan berbagai macam donat lezat dengan rasa yang menggugah selera.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
