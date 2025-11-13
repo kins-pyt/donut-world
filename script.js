@@ -362,3 +362,614 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+/* ===== LOGIN FUNCTIONALITY ===== */
+document.addEventListener('DOMContentLoaded', function() {
+    // Get modal elements
+    const loginModal = document.getElementById('loginModal');
+    const loginBtn = document.getElementById('loginBtn');
+    const closeBtn = document.querySelector('.close');
+    const loginForm = document.getElementById('loginForm');
+    const showRegister = document.getElementById('showRegister');
+    
+    // Check if elements exist (only on pages with login)
+    if (!loginBtn) return;
+    
+    // Open modal when login button is clicked
+    loginBtn.addEventListener('click', function() {
+        if (loginBtn.classList.contains('logged-in')) {
+            // User is already logged in, perform logout
+            loginBtn.textContent = 'Login';
+            loginBtn.classList.remove('logged-in');
+            alert('You have been logged out!');
+        } else {
+            // User is not logged in, show login modal
+            loginModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+    });
+    
+    // Close modal when X is clicked
+    closeBtn.addEventListener('click', function() {
+        loginModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+        resetForm();
+    });
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+        if (event.target === loginModal) {
+            loginModal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+            resetForm();
+        }
+    });
+    
+    // Form validation and submission
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+        
+        // Reset error messages
+        resetErrors();
+        
+        // Validate form
+        let isValid = true;
+        
+        if (!username) {
+            showError('usernameError', 'Username or email is required');
+            isValid = false;
+        }
+        
+        if (!password) {
+            showError('passwordError', 'Password is required');
+            isValid = false;
+        } else if (password.length < 6) {
+            showError('passwordError', 'Password must be at least 6 characters');
+            isValid = false;
+        }
+        
+        // If form is valid, simulate login
+        if (isValid) {
+            simulateLogin(username, password);
+        }
+    });
+    
+    // Show register form (placeholder)
+    showRegister.addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('Registration feature coming soon!');
+    });
+    
+    // Helper functions
+    function showError(elementId, message) {
+        const errorElement = document.getElementById(elementId);
+        if (errorElement) {
+            errorElement.textContent = message;
+        }
+    }
+    
+    function resetErrors() {
+        const errorElements = document.querySelectorAll('.error-message');
+        errorElements.forEach(element => {
+            element.textContent = '';
+        });
+    }
+    
+    function resetForm() {
+        loginForm.reset();
+        resetErrors();
+    }
+    
+    function simulateLogin(username, password) {
+        // In a real application, you would send this to a server
+        // For demo purposes, we'll simulate a successful login
+        
+        // Show loading state
+        const submitBtn = loginForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Logging in...';
+        submitBtn.disabled = true;
+        
+        // Simulate API call delay
+        setTimeout(() => {
+            // For demo, any username/password combination is valid
+            // In a real app, you would validate against a database
+            
+            // Show success animation
+            showSuccessAnimation();
+            
+            // Update UI to show user is logged in
+            setTimeout(() => {
+                loginBtn.textContent = 'Logout';
+                loginBtn.classList.add('logged-in');
+                
+                loginModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                resetForm();
+                
+                // Show welcome message
+                alert(`Welcome back, ${username}!`);
+            }, 1500);
+            
+        }, 1500);
+    }
+    
+    function showSuccessAnimation() {
+        // Create success animation elements
+        const successDiv = document.createElement('div');
+        successDiv.className = 'success-checkmark';
+        successDiv.innerHTML = `
+            <div class="check-icon">
+                <span class="icon-line line-tip"></span>
+                <span class="icon-line line-long"></span>
+            </div>
+        `;
+        
+        // Insert before the form
+        loginForm.parentNode.insertBefore(successDiv, loginForm);
+        
+        // Hide form and show animation
+        loginForm.style.display = 'none';
+        successDiv.style.display = 'block';
+        
+        // Remove animation after completion
+        setTimeout(() => {
+            successDiv.remove();
+            loginForm.style.display = 'block';
+            
+            // Reset button state
+            const submitBtn = loginForm.querySelector('button[type="submit"]');
+            submitBtn.textContent = 'Login';
+            submitBtn.disabled = false;
+        }, 2500);
+    }
+});
+
+/* ===== ADMIN LOGIN & DASHBOARD ===== */
+document.addEventListener('DOMContentLoaded', function() {
+    // Admin credentials
+    const ADMIN_CREDENTIALS = {
+        username: 'admin',
+        password: 'admin123',
+        email: 'admin@donutworld.com'
+    };
+
+    // Check if user is already logged in
+    function checkLoginStatus() {
+        const isLoggedIn = localStorage.getItem('adminLoggedIn');
+        const loginBtn = document.getElementById('loginBtn');
+        
+        if (isLoggedIn === 'true' && loginBtn) {
+            loginBtn.textContent = 'Dashboard';
+            loginBtn.classList.add('logged-in');
+        }
+    }
+
+    // Enhanced login functionality
+    function initLoginSystem() {
+        const loginModal = document.getElementById('loginModal');
+        const loginBtn = document.getElementById('loginBtn');
+        const closeBtn = document.querySelector('.close');
+        const loginForm = document.getElementById('loginForm');
+        const showRegister = document.getElementById('showRegister');
+
+        if (!loginBtn) return;
+
+        // Open modal or go to dashboard
+        loginBtn.addEventListener('click', function() {
+            if (loginBtn.classList.contains('logged-in')) {
+                // User is logged in, go to dashboard
+                window.location.href = 'dashboard.html';
+            } else {
+                // Show login modal
+                loginModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        });
+
+        // Close modal
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function() {
+                loginModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                resetForm();
+            });
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === loginModal) {
+                loginModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                resetForm();
+            }
+        });
+
+        // Form submission
+        if (loginForm) {
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                handleLogin();
+            });
+        }
+
+        // Register link
+        if (showRegister) {
+            showRegister.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Registration feature coming soon!');
+            });
+        }
+    }
+
+    function handleLogin() {
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+        
+        resetErrors();
+        
+        let isValid = true;
+        
+        if (!username) {
+            showError('usernameError', 'Username or email is required');
+            isValid = false;
+        }
+        
+        if (!password) {
+            showError('passwordError', 'Password is required');
+            isValid = false;
+        }
+        
+        if (isValid) {
+            authenticateUser(username, password);
+        }
+    }
+
+    function authenticateUser(username, password) {
+        const submitBtn = document.querySelector('#loginForm button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Logging in...';
+        submitBtn.disabled = true;
+
+        // Simulate API call
+        setTimeout(() => {
+            if ((username === ADMIN_CREDENTIALS.username || username === ADMIN_CREDENTIALS.email) && 
+                password === ADMIN_CREDENTIALS.password) {
+                
+                // Successful login
+                localStorage.setItem('adminLoggedIn', 'true');
+                localStorage.setItem('adminUsername', username);
+                
+                showSuccessAnimation(() => {
+                    window.location.href = 'dashboard.html';
+                });
+                
+            } else {
+                // Failed login
+                showError('passwordError', 'Invalid username or password');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        }, 1500);
+    }
+
+    function showError(elementId, message) {
+        const errorElement = document.getElementById(elementId);
+        if (errorElement) {
+            errorElement.textContent = message;
+        }
+    }
+
+    function resetErrors() {
+        const errorElements = document.querySelectorAll('.error-message');
+        errorElements.forEach(element => {
+            element.textContent = '';
+        });
+    }
+
+    function resetForm() {
+        const loginForm = document.getElementById('loginForm');
+        if (loginForm) {
+            loginForm.reset();
+        }
+        resetErrors();
+    }
+
+    function showSuccessAnimation(callback) {
+        const loginForm = document.getElementById('loginForm');
+        const successDiv = document.createElement('div');
+        successDiv.className = 'success-checkmark';
+        successDiv.innerHTML = `
+            <div class="check-icon">
+                <span class="icon-line line-tip"></span>
+                <span class="icon-line line-long"></span>
+            </div>
+            <p style="margin-top: 20px; color: var(--primary-color); font-weight: 600;">Login Successful!</p>
+        `;
+        
+        if (loginForm) {
+            loginForm.parentNode.insertBefore(successDiv, loginForm);
+            loginForm.style.display = 'none';
+            successDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                if (callback) callback();
+            }, 2000);
+        }
+    }
+
+    // Initialize
+    checkLoginStatus();
+    initLoginSystem();
+});
+
+/* ===== DASHBOARD FUNCTIONALITY ===== */
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if we're on dashboard page
+    if (!window.location.pathname.includes('dashboard.html')) return;
+
+    // Check authentication
+    const isLoggedIn = localStorage.getItem('adminLoggedIn');
+    if (isLoggedIn !== 'true') {
+        window.location.href = 'index.html';
+        return;
+    }
+
+    // Initialize dashboard
+    initDashboard();
+});
+
+function initDashboard() {
+    const adminUsername = localStorage.getItem('adminUsername') || 'Admin';
+    
+    // Update welcome message
+    const welcomeElement = document.getElementById('adminWelcome');
+    if (welcomeElement) {
+        welcomeElement.textContent = `Welcome, ${adminUsername}!`;
+    }
+
+    // Initialize menu management
+    initMenuManagement();
+    
+    // Initialize store management
+    initStoreManagement();
+    
+    // Initialize order management
+    initOrderManagement();
+
+    // Logout functionality
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function() {
+            localStorage.removeItem('adminLoggedIn');
+            localStorage.removeItem('adminUsername');
+            window.location.href = 'index.html';
+        });
+    }
+}
+
+function initMenuManagement() {
+    let menuItems = JSON.parse(localStorage.getItem('donutMenu')) || [
+        {
+            id: 1,
+            name: 'Donut Cokelat Belgian',
+            description: 'Lapisan cokelat Belgian pekat, manis seimbang.',
+            price: 18000,
+            category: 'chocolate',
+            image: 'https://131409694.cdn6.editmysite.com/uploads/1/3/1/4/131409694/I6NBQXDTPXK4NBEQQRPEZDNO.jpeg?width=2560&optimize=medium',
+            featured: true
+        },
+        {
+            id: 2,
+            name: 'Donut Rainbow',
+            description: 'Donut warna-warni dengan glaze yang manis',
+            price: 18000,
+            category: 'colorful',
+            image: 'https://hips.hearstapps.com/hmg-prod/images/types-of-doughnuts-1666119864.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=400:*',
+            featured: true
+        },
+        {
+            id: 3,
+            name: 'Donut Glaze',
+            description: 'Donut dengan glaze cokelat yang menggiurkan',
+            price: 16000,
+            category: 'chocolate',
+            image: 'https://thefirstyearblog.com/wp-content/uploads/2020/09/Baked-Chocolate-Donuts-35B.jpg',
+            featured: true
+        }
+    ];
+
+    // Save initial menu if not exists
+    if (!localStorage.getItem('donutMenu')) {
+        localStorage.setItem('donutMenu', JSON.stringify(menuItems));
+    }
+
+    // Render menu items
+    renderMenuItems();
+
+    // Add menu form handler
+    const addMenuForm = document.getElementById('addMenuForm');
+    if (addMenuForm) {
+        addMenuForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            addMenuItem();
+        });
+    }
+
+    function renderMenuItems() {
+        const menuGrid = document.getElementById('menuGrid');
+        if (!menuGrid) return;
+
+        menuGrid.innerHTML = '';
+
+        menuItems.forEach(item => {
+            const menuItem = document.createElement('div');
+            menuItem.className = 'menu-item-card';
+            menuItem.innerHTML = `
+                <div class="menu-item-image">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="menu-item-actions">
+                        <button class="btn-edit" onclick="editMenuItem(${item.id})">Edit</button>
+                        <button class="btn-delete" onclick="deleteMenuItem(${item.id})">Delete</button>
+                    </div>
+                </div>
+                <div class="menu-item-info">
+                    <h4>${item.name}</h4>
+                    <p>${item.description}</p>
+                    <div class="menu-item-meta">
+                        <span class="price">Rp ${item.price.toLocaleString()}</span>
+                        <span class="category">${item.category}</span>
+                        ${item.featured ? '<span class="featured">Featured</span>' : ''}
+                    </div>
+                </div>
+            `;
+            menuGrid.appendChild(menuItem);
+        });
+
+        // Update stats
+        updateStats();
+    }
+
+    function addMenuItem() {
+        const name = document.getElementById('menuName').value;
+        const description = document.getElementById('menuDescription').value;
+        const price = parseInt(document.getElementById('menuPrice').value);
+        const category = document.getElementById('menuCategory').value;
+        const image = document.getElementById('menuImage').value;
+        const featured = document.getElementById('menuFeatured').checked;
+
+        const newItem = {
+            id: Date.now(),
+            name,
+            description,
+            price,
+            category,
+            image: image || 'https://via.placeholder.com/300x200?text=Donut+Image',
+            featured
+        };
+
+        menuItems.push(newItem);
+        localStorage.setItem('donutMenu', JSON.stringify(menuItems));
+        renderMenuItems();
+        
+        // Reset form
+        document.getElementById('addMenuForm').reset();
+        
+        // Show success message
+        showNotification('Menu item added successfully!', 'success');
+    }
+
+    // Make functions global for onclick handlers
+    window.editMenuItem = function(id) {
+        const item = menuItems.find(item => item.id === id);
+        if (item) {
+            document.getElementById('menuName').value = item.name;
+            document.getElementById('menuDescription').value = item.description;
+            document.getElementById('menuPrice').value = item.price;
+            document.getElementById('menuCategory').value = item.category;
+            document.getElementById('menuImage').value = item.image;
+            document.getElementById('menuFeatured').checked = item.featured;
+            
+            // Change form to edit mode
+            const form = document.getElementById('addMenuForm');
+            form.dataset.editId = id;
+            form.querySelector('button[type="submit"]').textContent = 'Update Menu Item';
+            
+            showNotification('Edit mode activated. Update the fields and click "Update Menu Item"', 'info');
+        }
+    };
+
+    window.deleteMenuItem = function(id) {
+        if (confirm('Are you sure you want to delete this menu item?')) {
+            menuItems = menuItems.filter(item => item.id !== id);
+            localStorage.setItem('donutMenu', JSON.stringify(menuItems));
+            renderMenuItems();
+            showNotification('Menu item deleted successfully!', 'success');
+        }
+    };
+
+    function updateStats() {
+        const totalMenuItems = document.getElementById('totalMenuItems');
+        const featuredItems = document.getElementById('featuredItems');
+        const totalValue = document.getElementById('totalValue');
+
+        if (totalMenuItems) totalMenuItems.textContent = menuItems.length;
+        if (featuredItems) featuredItems.textContent = menuItems.filter(item => item.featured).length;
+        if (totalValue) {
+            const total = menuItems.reduce((sum, item) => sum + item.price, 0);
+            totalValue.textContent = `Rp ${total.toLocaleString()}`;
+        }
+    }
+}
+
+function initStoreManagement() {
+    // Store management functionality can be added here
+    console.log('Store management initialized');
+}
+
+function initOrderManagement() {
+    // Order management functionality can be added here
+    console.log('Order management initialized');
+}
+
+function showNotification(message, type = 'info') {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+        <span>${message}</span>
+        <button onclick="this.parentElement.remove()">&times;</button>
+    `;
+    
+    // Add styles if not exists
+    if (!document.querySelector('#notificationStyles')) {
+        const styles = document.createElement('style');
+        styles.id = 'notificationStyles';
+        styles.textContent = `
+            .notification {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 20px;
+                border-radius: 5px;
+                color: white;
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                min-width: 300px;
+                animation: slideInRight 0.3s ease;
+            }
+            .notification.success { background: #10b981; }
+            .notification.error { background: #ef4444; }
+            .notification.info { background: #3b82f6; }
+            .notification.warning { background: #f59e0b; }
+            .notification button {
+                background: none;
+                border: none;
+                color: white;
+                font-size: 18px;
+                cursor: pointer;
+                margin-left: 10px;
+            }
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+        `;
+        document.head.appendChild(styles);
+    }
+    
+    document.body.appendChild(notification);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+    }, 5000);
+}
